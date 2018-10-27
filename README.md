@@ -9,7 +9,9 @@
   https://github.com/3scale
 
 2. 如何安装在物理机或虚拟机上安装API网关（APIcast）
+
 以下为在RHEL v7.5上安装APIcast v3.2.1的步骤
+
 切换至root用户
 
 sudo -i
