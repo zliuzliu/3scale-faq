@@ -10,33 +10,37 @@
 
 2. 如何安装在物理机或虚拟机上安装API网关（APIcast）
 以下为在RHEL v7.5上安装APIcast v3.2.1的步骤
-Switch to root
+切换至root用户
 
 sudo -i
-Install dependencies
+
+安装依赖包
 
 yum install -y yum-utils gcc git
-Enable OpenResty repo (see RHEL section at https://openresty.org/en/linux-packages.html)
+
+启用OpenResty repo (查看  https://openresty.org/en/linux-packages.html 的 RHEL 部分)
 
 yum-config-manager --add-repo https://openresty.org/package/rhel/openresty.repo
-Enable EPEL packages (needed for LuaRocks)
+
+启用 EPEL 包 (LuaRocks需要)
 
 yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-Upgrade yum
+
+更新
 
 yum upgrade -y
-Install OpenResty (see RHEL section at https://openresty.org/en/linux-packages.html)
 
-yum install -y openresty-openssl-1.0.2k
-export OPENRESTY_RPM_VERSION="1.13.6.1"
+安装 OpenResty (查看 https://openresty.org/en/linux-packages.html 的 RHEL 部分)
+
+yum install -y openresty-openssl
 yum install -y \
-     openresty-${OPENRESTY_RPM_VERSION} \
-     openresty-resty-${OPENRESTY_RPM_VERSION}
+     openresty \
+     openresty-resty
 Install LuaRocks
 
-export LUAROCKS_VERSION="2.3.1"
-yum install -y luarocks-${LUAROCKS_VERSION}
-Configure Lua environment
+yum install -y luarocks
+
+配置 Lua 环境
 
 mkdir -p /usr/share/lua/5.1/luarocks/
 cat << EOF > /usr/share/lua/5.1/luarocks/site_config.lua
