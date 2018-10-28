@@ -121,3 +121,7 @@ From within the /home/ec2-user/apicast-3.2.1 directory try the following:
 rm -rf lua_modules
 make dependencies
 
+3. 3scale API网关的部署模式
+（1）OpenShift
+（2）docker
+（3）native
