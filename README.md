@@ -1,6 +1,5 @@
 # 3scale-FAQ
 
-====
 (更新于2018年10月27日，当前最新版本为3scale v2.3）
 
 - [**1. 红帽3scale对应的上游开源项目**](#upstream-project)
@@ -20,38 +19,38 @@
 
 * 安装依赖包
 
-> yum install -y yum-utils gcc git
+`yum install -y yum-utils gcc git`
 
 * 启用OpenResty repo (查看  https://openresty.org/en/linux-packages.html 的 RHEL 部分)
 
-> yum-config-manager --add-repo https://openresty.org/package/rhel/openresty.repo
+`yum-config-manager --add-repo https://openresty.org/package/rhel/openresty.repo`
 
 * 启用 EPEL 包 (LuaRocks需要)
 
-> yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+`yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm`
 
 * 更新包
 
-> yum upgrade -y
+`yum upgrade -y`
 
 * 安装 OpenResty (查看 https://openresty.org/en/linux-packages.html 的 RHEL 部分)
 
-> yum install -y openresty-openssl
-> yum install -y \
->      openresty \
->      openresty-resty
+`yum install -y openresty-openssl`
+`yum install -y \`
+`     openresty \`
+`     openresty-resty`
 
 * Install LuaRocks
 
-> yum install -y luarocks
+`yum install -y luarocks`
 
 * 配置 Lua 环境
 
-> mkdir -p /usr/share/lua/5.1/luarocks/
-> cat << EOF > /usr/share/lua/5.1/luarocks/site_config.lua
-> local site_config = { }
+`mkdir -p /usr/share/lua/5.1/luarocks/`
+`cat << EOF ``/usr/share/lua/5.1/luarocks/site_config.lua`
+`local site_config = { }`
 
-> local openresty = [[/usr/local/openresty]]
+`local openresty = [[/usr/local/openresty]]`
 local luajit = openresty .. [[/luajit]]
 
 site_config.LUAROCKS_SYSCONFIG=openresty .. [[/config-5.1.lua]]
