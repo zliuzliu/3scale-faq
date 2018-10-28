@@ -12,43 +12,44 @@
 
 以下为在RHEL v7.5上安装APIcast v3.2.1的步骤
 
-切换至root用户
+* 切换至root用户
 
-sudo -i
+> sudo -i
 
-安装依赖包
+* 安装依赖包
 
-yum install -y yum-utils gcc git
+> yum install -y yum-utils gcc git
 
-启用OpenResty repo (查看  https://openresty.org/en/linux-packages.html 的 RHEL 部分)
+* 启用OpenResty repo (查看  https://openresty.org/en/linux-packages.html 的 RHEL 部分)
 
-yum-config-manager --add-repo https://openresty.org/package/rhel/openresty.repo
+> yum-config-manager --add-repo https://openresty.org/package/rhel/openresty.repo
 
-启用 EPEL 包 (LuaRocks需要)
+* 启用 EPEL 包 (LuaRocks需要)
 
-yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+> yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
-更新
+* 更新包
 
-yum upgrade -y
+> yum upgrade -y
 
-安装 OpenResty (查看 https://openresty.org/en/linux-packages.html 的 RHEL 部分)
+* 安装 OpenResty (查看 https://openresty.org/en/linux-packages.html 的 RHEL 部分)
 
-yum install -y openresty-openssl
-yum install -y \
-     openresty \
-     openresty-resty
-Install LuaRocks
+> yum install -y openresty-openssl
+> yum install -y \
+>      openresty \
+>      openresty-resty
 
-yum install -y luarocks
+* Install LuaRocks
 
-配置 Lua 环境
+> yum install -y luarocks
 
-mkdir -p /usr/share/lua/5.1/luarocks/
-cat << EOF > /usr/share/lua/5.1/luarocks/site_config.lua
-local site_config = { }
+* 配置 Lua 环境
 
-local openresty = [[/usr/local/openresty]]
+> mkdir -p /usr/share/lua/5.1/luarocks/
+> cat << EOF > /usr/share/lua/5.1/luarocks/site_config.lua
+> local site_config = { }
+
+> local openresty = [[/usr/local/openresty]]
 local luajit = openresty .. [[/luajit]]
 
 site_config.LUAROCKS_SYSCONFIG=openresty .. [[/config-5.1.lua]]
