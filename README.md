@@ -4,7 +4,7 @@
 
 - [**1. 红帽3scale对应的上游开源项目**](#upstream-project)
 - [**2. 如何安装在物理机或虚拟机上安装API网关（APIcast）**](#install-apicast-rhel7)
-- [**3. 3scale API网关的部署模式**]
+- [**3. 3scale API网关的部署模式**](#deploy-mode)
 
 1. 红帽3scale对应的上游开源项目
 
